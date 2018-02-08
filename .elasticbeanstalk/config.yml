@@ -2,6 +2,8 @@ branch-defaults:
   default:
     environment: dev-env
     group_suffix: null
+  master:
+    environment: dev-env
 global:
   application_name: Desktop
   branch: null
