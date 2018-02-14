@@ -2,12 +2,16 @@
 if($_GET['hub_mode'] == "subscribe") {
 	echo $_GET['hub_challenge'];
 } else {
-	$file = fopen("testData.txt", 'a');
-	$getData = "";
-	$putData = "";
+	$fileName = "textData.txt";
+	$file = fopen($fileName, 'a') or die('Cannot open file:  ' . $fileName);
+
 	var_export($getData, true);
 	var_export($putData, true);
-	fwrite($getData . " + " . $putData);
+	fwrite("writing: " . $getData . " + " . $putData);
+	fclose($file);
+
+	
+	
 }
 
 
