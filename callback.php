@@ -4,7 +4,7 @@ if($_GET['hub_mode'] == "subscribe") {
 } else {
 	
 echo "trying to connect";
-$servername = " aa1a0jahjffztnz.cvvm8c9essu3.us-west-2.rds.amazonaws.com:3306";
+$servername = "aa1a0jahjffztnz.cvvm8c9essu3.us-west-2.rds.amazonaws.com:3306";
 $username = "admin";
 $password = "password";
 
