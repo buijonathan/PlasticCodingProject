@@ -35,6 +35,8 @@ $fileName = "data.txt";
 chmod($fileName, 0777); 
 $handle = fopen($fileName, 'w+');
 fwrite($handle, "test");
+fclose($handle);
+$handle = fopen($fileName, 'r');
 var_dump(fread($handle, filesize($fileName)));
 fclose($handle);
 $conn->close();
