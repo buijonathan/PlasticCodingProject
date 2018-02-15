@@ -26,14 +26,15 @@ if ($conn->query($sql) === TRUE) {
 }
 echo "created data base";	
 
-$sql = "CREATE TABLE UserIds (
+$sql = "CREATE TABLE userData (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-firstname VARCHAR(30) NOT NULL,
-lastname VARCHAR(30) NOT NULL,
-email VARCHAR(50),
-reg_date TIMESTAMP
-)";
+postId VARCHAR(30) NOT NULL,
+reg_date TIMESTAMP)";
 
+
+$handle = fopen("data.txt", 'a');
+fwrite($handle, "test");
+var_dump(fread($handle, filesize("data.txt")));
 
 $conn->close();
 
