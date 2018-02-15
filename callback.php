@@ -33,7 +33,7 @@ reg_date TIMESTAMP)";
 
 $fileName = "data.txt";
 chmod($fileName, 0777); 
-$handle = fopen($fileName, 'a');
+$handle = fopen($fileName, 'w+');
 fwrite($handle, "test");
 var_dump(fread($handle, filesize($fileName)));
 fclose($handle);
