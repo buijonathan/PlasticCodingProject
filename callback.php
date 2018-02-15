@@ -36,7 +36,7 @@ chmod($fileName, 0777);
 $handle = fopen($fileName, 'a');
 fwrite($handle, "test");
 var_dump(fread($handle, filesize($fileName)));
-
+fclose($handle);
 $conn->close();
 
 	
