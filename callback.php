@@ -24,17 +24,18 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error creating database: " . $conn->error;
 }
-echo "created data base";	
+echo "data base creation stage complete";	
 
 $sql = "CREATE TABLE userData (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 postId VARCHAR(30) NOT NULL,
 reg_date TIMESTAMP)";
 
-
-$handle = fopen("data.txt", 'a');
+$fileName = "data.txt";
+chmod($fileName, 0777); 
+$handle = fopen($fileName, 'a');
 fwrite($handle, "test");
-var_dump(fread($handle, filesize("data.txt")));
+var_dump(fread($handle, filesize($fileName)));
 
 $conn->close();
 
