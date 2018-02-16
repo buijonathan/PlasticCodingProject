@@ -34,7 +34,7 @@ reg_date TIMESTAMP)";
 $fileName = "data.txt";
 chmod($fileName, 0777); 
 $handle = fopen($fileName, 'w');
-fwrite($handle, "test");
+fwrite($handle, var_export($_POST);
 fclose($handle);
 $handle = fopen($fileName, 'r');
 var_dump(fread($handle, filesize($fileName)));
