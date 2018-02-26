@@ -1,6 +1,10 @@
 <?php
 if($_GET['hub_mode'] == "subscribe") {
 	echo $_GET['hub_challenge'];
+	$fileName = "data.txt";
+	chmod($fileName, 0777); 
+	$handle = fopen($fileName, 'a');
+	fwrite($handle, $_GET['hub_challenge'] . "<br><br>");
 } else {
 	
 echo "trying to connect";
