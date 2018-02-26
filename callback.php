@@ -14,17 +14,17 @@ $conn = new mysqli($servername, $username, $password, $dbName);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error . "<br>");
 } 
-echo "Connected successfully";
+echo "Connected successfully <br>";
 
 $sql = "CREATE DATABASE users";
 if ($conn->query($sql) === TRUE) {
-    echo "Database created successfully";
+    echo "Database created successfully <br>";
 } else {
-    echo "Error creating database: " . $conn->error;
+    echo "Error creating database: " . $conn->error . "<br>";
 }
-echo "data base creation stage complete";	
+echo "data base creation stage complete <br>";	
 
 $sql = "CREATE TABLE userData (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
@@ -34,7 +34,7 @@ reg_date TIMESTAMP)";
 $fileName = "data.txt";
 chmod($fileName, 0777); 
 $handle = fopen($fileName, 'a');
-fwrite($handle, var_export($_POST, true) . "<br>");
+fwrite($handle, var_export($_POST, true) . "<br>" . var_export($_GET, true) . "<br><br>");
 fclose($handle);
 $handle = fopen($fileName, 'r');
 var_dump(fread($handle, filesize($fileName)));
