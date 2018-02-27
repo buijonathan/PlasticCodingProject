@@ -44,13 +44,13 @@ echo ($sql . "<br>");
 $result = $conn->query($sql);
 var_dump($result->num_rows);
 if ($result->num_rows > 0) {
-//    echo "user already exists!<br>"
+    echo ("user already exists!<br>")
     //while($row = $result->fetch_assoc()) {
     //    var_dump($row);
 	//	echo "<br>";
     //}
 } else {
-//	echo "User not found, adding";
+	echo ("User not found, adding");
     //$sql = "INSERT INTO users (userId)
 //VALUES (\' " . $json['user']['id'] . "\')";
 
