@@ -30,26 +30,26 @@ $password = "password";
 $dbName = "users";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbName);
+//$conn = new mysqli($servername, $username, $password, $dbName);
 
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error . "<br>");
-} 
-echo "Connected successfully <br>";
+//if ($conn->connect_error) {
+//    die("Connection failed: " . $conn->connect_error . "<br>");
+//} 
+//echo "Connected successfully <br>";
 
-$sql = "SELECT * FROM users WHERE userId=" . $json['user']['id'];
-echo $sql . "<br>";
+//$sql = "SELECT * FROM users WHERE userId=" . $json['user']['id'];
+//echo $sql . "<br>";
 
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    echo "user already exists!<br>"
+//$result = $conn->query($sql);
+//if ($result->num_rows > 0) {
+ //   echo "user already exists!<br>"
     //while($row = $result->fetch_assoc()) {
     //    var_dump($row);
 	//	echo "<br>";
     //}
-} else {
-	echo "User not found, adding";
+//} else {
+//	echo "User not found, adding";
     //$sql = "INSERT INTO users (userId)
 //VALUES (\' " . $json['user']['id'] . "\')";
 
@@ -58,5 +58,5 @@ if ($result->num_rows > 0) {
 	//} else {
 	//	echo "Error: " . $sql . "<br>" . $conn->error;
 	//}
-}
+//}
 ?>
