@@ -24,7 +24,7 @@ $json = json_decode($result, true);
 echo $json['access_token'];
 
 $url = 'https://api.instagram.com/v1/subscriptions';
-$data = array('client_id' => '649a75e6c43448b9b9927cee68fcf55b', 'client_secret' => '91ece73e7b864be6b3144f42a73b5ba2', 'object' => 'user', 'aspect' => 'media', 'verify_token' => $json['access_token'], 'redirect_uri' => 'http://dev-env.imxpud8g9s.us-west-2.elasticbeanstalk.com/instaEndpoint.php');
+$data = array('client_id' => '649a75e6c43448b9b9927cee68fcf55b', 'client_secret' => '91ece73e7b864be6b3144f42a73b5ba2', 'object' => 'user', 'aspect' => 'media', 'verify_token' => $json['callback_url'], 'redirect_uri' => 'http://dev-env.imxpud8g9s.us-west-2.elasticbeanstalk.com/callback.php');
 
 // use key 'http' even if you send the request to https://...
 $options = array(
