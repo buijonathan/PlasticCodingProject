@@ -19,9 +19,35 @@ $result = file_get_contents($url, false, $context);
 if ($result === FALSE) { /* Handle error */ }
 echo( "<br><br>");
 var_dump($result);
-echo("<br>");
+echo("<br><br>");
 $json = json_decode($result, true);
 echo $json['access_token'];
 
+$client = new http\Client;
+$request = new http\Client\Request;
+
+$body = new http\Message\Body;
+$body->addForm(array(
+  'client_id' => '649a75e6c43448b9b9927cee68fcf55b',
+  'client_secret' => '91ece73e7b864be6b3144f42a73b5ba2',
+  'object' => 'user',
+  'aspect' => 'media',
+  'verify_token' => $json['access_token'];
+  'callback_url' => 'http://dev-env.imxpud8g9s.us-west-2.elasticbeanstalk.com/callback.php'
+), NULL);
+
+$request->setRequestUrl('https://api.instagram.com/v1/subscriptions/');
+$request->setRequestMethod('POST');
+$request->setBody($body);
+
+$request->setHeaders(array(
+  'Cache-Control' => 'no-cache',
+  'Content-Type' => 'application/x-www-form-urlencoded'
+));
+
+$client->enqueue($request)->send();
+$response = $client->getResponse();
+echo ("<br><br>");
+echo $response->getBody();
 
 ?>
