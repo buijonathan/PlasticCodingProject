@@ -51,13 +51,13 @@ if ($result->num_rows > 0) {
     //}
 } else {
 	echo ("User not found, adding");
-    //$sql = "INSERT INTO users (userId)
-//VALUES (\' " . $json['user']['id'] . "\')";
+    $sql = "INSERT INTO users (userId)
+VALUES (\' " . $json['user']['id'] . "\')";
 
-	//if ($conn->query($sql) === TRUE) {
-	//	echo "New record created successfully";
-	//} else {
-	//	echo ("Error: " . $sql . "<br>" . $conn->error);
-	//}
+	if ($conn->query($sql) === TRUE) {
+		echo "New record created successfully";
+	} else {
+		echo ("Error: " . $sql . "<br>" . $conn->error);
+	}
 }
 ?>
