@@ -38,8 +38,8 @@ $conn = new mysqli($servername, $username, $password, $dbName);
 //} 
 echo "Connected successfully <br>";
 
-//$sql = "SELECT * FROM users WHERE userId=" . $json['user']['id'];
-//echo $sql . "<br>";
+$sql = "SELECT * FROM users WHERE userId=" . $json['user']['id'];
+echo ($sql . "<br>");
 
 //$result = $conn->query($sql);
 //if ($result->num_rows > 0) {
