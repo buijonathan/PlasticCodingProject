@@ -17,8 +17,11 @@ $options = array(
 $context  = stream_context_create($options);
 $result = file_get_contents($url, false, $context);
 if ($result === FALSE) { /* Handle error */ }
-
+echo( "<br><br>");
 var_dump($result);
+echo("<br>");
+$json = json_decode($result, true);
+echo $json['access_token'];
 
 
 ?>
