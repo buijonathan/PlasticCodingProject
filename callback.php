@@ -22,18 +22,24 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully <br>";
 
-$sql = "CREATE DATABASE users";
+//$sql = "CREATE DATABASE users";
+//if ($conn->query($sql) === TRUE) {
+//    echo "Database created successfully <br>";
+//} else {
+//    echo "Error creating database: " . $conn->error . "<br>";
+//}
+//echo "data base creation stage complete <br>";	
+
+$sql = "CREATE TABLE users (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
+userId VARCHAR(30) NOT NULL,
+reg_date TIMESTAMP)";
+
 if ($conn->query($sql) === TRUE) {
     echo "Database created successfully <br>";
 } else {
     echo "Error creating database: " . $conn->error . "<br>";
 }
-echo "data base creation stage complete <br>";	
-
-$sql = "CREATE TABLE userData (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-postId VARCHAR(30) NOT NULL,
-reg_date TIMESTAMP)";
 
 $fileName = "data.txt";
 chmod($fileName, 0777); 
