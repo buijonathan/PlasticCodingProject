@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully <br>";
 
-//$sql = "CREATE DATABASE users";
+$sql = "CREATE DATABASE users";
 //if ($conn->query($sql) === TRUE) {
 //    echo "Database created successfully <br>";
 //} else {
@@ -30,10 +30,26 @@ echo "Connected successfully <br>";
 //}
 //echo "data base creation stage complete <br>";	
 
+mediaId (50)
+name (30)
+profile(150)
+image url(150)
+time(15)
+lat(15)
+long(15)
+name(50)
+
 $sql = "CREATE TABLE users (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
-userId VARCHAR(30) NOT NULL,
-reg_date TIMESTAMP)";
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+mediaId VARCHAR(50) NOT NULL,
+name VARCHAR(30),
+profileURL VARCHAR(150),
+imageURL VARCHAR(150),
+time VARCHAR(15),
+lat FLOAT,
+lon FLOAT,
+locName VARCHAR(50)
+)";
 
 if ($conn->query($sql) === TRUE) {
     echo "Database created successfully <br>";
