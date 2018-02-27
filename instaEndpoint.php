@@ -36,7 +36,7 @@ $conn = new mysqli($servername, $username, $password, $dbName);
 //if ($conn->connect_error) {
 //    die("Connection failed: " . $conn->connect_error . "<br>");
 //} 
-//echo "Connected successfully <br>";
+echo "Connected successfully <br>";
 
 //$sql = "SELECT * FROM users WHERE userId=" . $json['user']['id'];
 //echo $sql . "<br>";
