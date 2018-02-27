@@ -30,14 +30,14 @@ $sql = "CREATE DATABASE users";
 //}
 //echo "data base creation stage complete <br>";	
 
-mediaId (50)
-name (30)
-profile(150)
-image url(150)
-time(15)
-lat(15)
-long(15)
-name(50)
+//mediaId (50)
+//name (30)
+//profile(150)
+//image url(150)
+//time(15)
+//lat(15)
+//long(15)
+//name(50)
 
 $sql = "CREATE TABLE users (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
