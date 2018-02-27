@@ -39,7 +39,7 @@ $sql = "CREATE DATABASE users";
 //long(15)
 //name(50)
 
-$sql = "CREATE TABLE users (
+$sql = "CREATE TABLE posts (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 mediaId VARCHAR(50) NOT NULL,
 name VARCHAR(30),
