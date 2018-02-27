@@ -42,8 +42,7 @@ $sql = "SELECT * FROM users WHERE userId=" . $json['user']['id'];
 echo ($sql . "<br>");
 
 $result = $conn->query($sql);
-var_dump($result);
-echo("<br>" . $result->num_rows);
+var_dump($result->num_rows);
 //if ($result['num_rows'] > 0) {
 //    echo "user already exists!<br>"
     //while($row = $result->fetch_assoc()) {
