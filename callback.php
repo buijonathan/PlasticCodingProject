@@ -57,7 +57,7 @@ $results = $conn->query($sql);
 var_dump($results);
 echo "<br>";
 echo "<table>";
-while ($row = $results->fetch_array()) {
+while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
 	
 	echo "<tr>";
 	foreach($row as $key => $value) {
