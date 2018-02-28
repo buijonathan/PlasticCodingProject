@@ -43,14 +43,11 @@ $conn = new mysqli($servername, $username, $password, $dbName);
 //} 
 
 echo "Connected successfully <br>";
-$sql = "DROP TABLE table_name";
-$conn->query($sql);
-echo $conn->error;
 $sql = "CREATE TABLE users (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 name VARCHAR(30),
-userId VARCHAR(30) NOT NULL,
-key VARCHAR(60) NOT NULL,
+userId VARCHAR(30),
+key VARCHAR(60),
 )";
 $conn->query($sql);
 echo $conn->error;
