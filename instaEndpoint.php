@@ -36,10 +36,11 @@ $conn = new mysqli($servername, $username, $password, $dbName);
 //if ($conn->connect_error) {
 //    die("Connection failed: " . $conn->connect_error . "<br>");
 //} 
+
 echo "Connected successfully <br>";
-$sql = "DROP TABLE users";
+$sql = "DROP TABLE table_name";
 $conn->query($sql);
-$sql = "CREATE TABLE table_name (
+$sql = "CREATE TABLE users (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 name VARCHAR(30),
 mediaId VARCHAR(30) NOT NULL,
