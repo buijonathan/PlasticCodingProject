@@ -69,7 +69,7 @@ if ($result->num_rows > 0) {
 } else {
 	if(trim($json['user']['id']) != ""){
 		echo ("User not found, adding");
-		$sql = "INSERT INTO users (name, userId, authKey)VALUES ('" . $name . "', '" . $id . "')";
+		$sql = "INSERT INTO users (name, userId, authKey)VALUES ('" . $name . "', '" . $id . "', '" . $token . "')";
 
 		if ($conn->query($sql) === TRUE) {
 			echo "New record created successfully";
