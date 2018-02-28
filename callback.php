@@ -58,7 +58,7 @@ while ($row = $results->fetch_array()) {
 echo "</table>";
 
 $fileName = "data.txt";
-chmod($fileName, 0777);
+chmod($fileName, 0777); 
 $handle = fopen($fileName, 'a');
 fwrite($handle, var_export($_POST, true) . "<br>" . var_export($_GET, true) . "<br><br>");
 fclose($handle);
