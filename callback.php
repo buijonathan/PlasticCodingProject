@@ -46,11 +46,11 @@ echo "<br>";
 echo "<table>";
 while ($row = $results->fetch_array()) {
 	
-	echo "<td>";
+	echo "<tr>";
 	foreach($row as $key => $value) {
-		echo ("<tr>" . $key . " -> " . $value . "</tr>");
+		echo ("<td>" . $key . " -> " . $value . "</td>");
 	}
-	echo "</td>";
+	echo "</tr>";
 }
 echo "</table>";
 
