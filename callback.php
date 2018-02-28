@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully <br>";
 
-$sql = "CREATE DATABASE users";
+//$sql = "CREATE DATABASE users";
 //if ($conn->query($sql) === TRUE) {
 //    echo "Database created successfully <br>";
 //} else {
@@ -39,7 +39,7 @@ $sql = "CREATE DATABASE users";
 //long(15)
 //name(50)
 
-$sql = "SELECT * FROM posts";
+$sql = "SELECT * FROM users";
 $results = $conn->query($sql);
 var_dump($results);
 echo "<br>";
