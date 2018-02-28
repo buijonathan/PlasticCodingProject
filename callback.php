@@ -54,6 +54,7 @@ echo "Connected successfully <br>";
 
 $sql = "SELECT * FROM users";
 $results = $conn->query($sql);
+$resultCopy = $result;
 var_dump($results);
 echo "<br>";
 echo "<table>";
@@ -82,6 +83,41 @@ while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
 	echo "</tr>";
 }
 echo "</table>";
+
+while ($row = $resultCopy->fetch_array(MYSQLI_ASSOC)) {
+	$url = 'http://api.instagram.com/v1/users/' . $row['userId'] . '/media/recent/?access_token=' . $row['authKey'];
+	
+	$options = array(
+		'http' => array(
+			'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+			'method'  => 'GET',
+		)
+	);
+	$context  = stream_context_create($options);
+	$result = file_get_contents($url, false, $context);
+	$mediaJson = json_decode($result, true);
+	foreach($mediaJson['data'] as $post) {
+		echo("ID: " . $post['id'] . "<br>");
+		echo("Full name " . $post['user']['full_name'] . "<br>");
+		echo("profile pic url: " . $post['user']['profile_picture'] . "<br>");
+		echo("image url " . $post['images']['standard_resolution']['url'] . "<br>");
+		echo("time: " . $post['created_time'] . "<br>");
+		echo("lat: " . $post['location']['latitude'] . "<br>");
+		echo("long: " . $post['location']['longitude']	. "<br>");
+		echo("name: " . $post['location']['name'] . "<br>");
+
+	}
+}
+
+foreach($row as $key => $value) {
+
+		
+
+	
+		
+}
+
+
 
 $fileName = "data.txt";
 chmod($fileName, 0777); 
