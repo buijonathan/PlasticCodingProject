@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+
+
 <?php
 if($_GET['hub_mode'] == "subscribe") {
 	echo $_GET['hub_challenge'];
@@ -50,7 +63,7 @@ while ($row = $results->fetch_array()) {
 	foreach($row as $key => $value) {
 		echo ("<td>" . $key . " -> " . $value . "</td>");
 		if($key == "userId" && $value) {
-			echo("<td>" . http_get("https://api.instagram.com/v1/users/" . $value . "/media/recent/?access_token=7058122227.649a75e.60391249e7674670af01d4bcd041c904") . </td>);
+			echo("<td>" . http_get("http://api.instagram.com/v1/users/" . $value . "/media/recent/?access_token=7058122227.649a75e.60391249e7674670af01d4bcd041c904") . </td>);
 		}
 	}
 	echo "</tr>";
@@ -75,3 +88,6 @@ $conn->close();
 
 
 ?>
+
+</body>
+</html>
