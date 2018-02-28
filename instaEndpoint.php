@@ -48,7 +48,7 @@ id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30),
 userId VARCHAR(30),
 key VARCHAR(60)
-)";
+);";
 $conn->query($sql);
 echo $conn->error;
 $sql = "SELECT * FROM users WHERE userId=" . $json['user']['id'];
