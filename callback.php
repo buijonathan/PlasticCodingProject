@@ -30,7 +30,7 @@ $sql = "CREATE DATABASE users";
 //}
 //echo "data base creation stage complete <br>";	
 
-//mediaId (50)
+//mediaId (50) 
 //name (30)
 //profile(150)
 //image url(150)
@@ -58,7 +58,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 $fileName = "data.txt";
-chmod($fileName, 0777); 
+chmod($fileName, 0777);
 $handle = fopen($fileName, 'a');
 fwrite($handle, var_export($_POST, true) . "<br>" . var_export($_GET, true) . "<br><br>");
 fclose($handle);
