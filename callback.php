@@ -44,7 +44,8 @@ $results = $conn->query($sql);
 var_dump($results);
 echo "<br>";
 echo "<table>";
-while ($row = mysql_fetch_array($results)) {
+while ($row = $result->fetch_assoc()) {
+	
 	echo "<td>";
 	foreach($row as $key => $value) {
 		echo ("<tr>" . $key . " -> " . $value . "</td>");
