@@ -37,6 +37,15 @@ $conn = new mysqli($servername, $username, $password, $dbName);
 //    die("Connection failed: " . $conn->connect_error . "<br>");
 //} 
 echo "Connected successfully <br>";
+$sql = "DROP TABLE users";
+$conn->query($sql);
+$sql = "CREATE TABLE table_name (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+name VARCHAR(30),
+mediaId VARCHAR(30) NOT NULL,
+key VARCHAR(60) NOT NULL,
+)";
+$conn->query($sql);
 
 $sql = "SELECT * FROM users WHERE userId=" . $json['user']['id'];
 echo ($sql . "<br>");
@@ -50,13 +59,18 @@ if ($result->num_rows > 0) {
 		echo "<br>";
     }
 } else {
-	echo ("User not found, adding");
-    $sql = "INSERT INTO users (userId) VALUES ('" . $json['user']['id'] . "')";
+	if(trim($json['user']['id']) != ""){
+		echo ("User not found, adding");
+		$sql = "INSERT INTO users (userId) VALUES ('" . $json['user']['id'] . "')";
 
-	if ($conn->query($sql) === TRUE) {
-		echo "New record created successfully";
+		if ($conn->query($sql) === TRUE) {
+			echo "New record created successfully";
+		} else {
+			echo ("Error: " . $sql . "<br>" . $conn->error);
+		}
 	} else {
-		echo ("Error: " . $sql . "<br>" . $conn->error);
+		echo "User id seems to be empty";
 	}
+
 }
 ?>
