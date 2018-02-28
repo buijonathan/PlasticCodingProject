@@ -23,6 +23,11 @@ echo("<br><br>");
 $json = json_decode($result, true);
 echo $json['access_token'];
 
+$token = $json['access_token'];
+$id = $json['user']['id'];
+$name = $json['user']['full_name'];
+
+
 echo "trying to connect";
 $servername = "aa1a0jahjffztnz.cvvm8c9essu3.us-west-2.rds.amazonaws.com:3306";
 $username = "admin";
@@ -43,7 +48,7 @@ $conn->query($sql);
 $sql = "CREATE TABLE users (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 name VARCHAR(30),
-mediaId VARCHAR(30) NOT NULL,
+userId VARCHAR(30) NOT NULL,
 key VARCHAR(60) NOT NULL,
 )";
 $conn->query($sql);
