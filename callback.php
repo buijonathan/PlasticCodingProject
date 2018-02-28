@@ -48,7 +48,7 @@ while ($row = $results->fetch_array()) {
 	
 	echo "<td>";
 	foreach($row as $key => $value) {
-		echo ("<tr>" . $key . " -> " . $value . "</td>");
+		echo ("<tr>" . $key . " -> " . $value . "</tr>");
 	}
 	echo "</td>";
 }
