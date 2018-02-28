@@ -27,6 +27,10 @@ $token = $json['access_token'];
 $id = $json['user']['id'];
 $name = $json['user']['full_name'];
 
+echo $token . "<br>";
+echo $id . "<br>";
+echo $name . "<br>";
+
 
 echo "trying to connect";
 $servername = "aa1a0jahjffztnz.cvvm8c9essu3.us-west-2.rds.amazonaws.com:3306";
@@ -41,14 +45,14 @@ $conn = new mysqli($servername, $username, $password, $dbName);
 //if ($conn->connect_error) {
 //    die("Connection failed: " . $conn->connect_error . "<br>");
 //} 
-
+$sql = "DROP TABLE users";
+$conn->query($sql);
 echo "Connected successfully <br>";
 $sql = "CREATE TABLE users (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 name VARCHAR(30),
 userId VARCHAR(30),
-authKey VARCHAR(60)
-);";
+authKey VARCHAR(60) )";
 $conn->query($sql);
 echo $conn->error;
 $sql = "SELECT * FROM users WHERE userId=" . $json['user']['id'];
@@ -65,7 +69,7 @@ if ($result->num_rows > 0) {
 } else {
 	if(trim($json['user']['id']) != ""){
 		echo ("User not found, adding");
-		$sql = "INSERT INTO users (userId) VALUES ('" . $json['user']['id'] . "')";
+		$sql = "INSERT INTO users (name, userId, authKey)VALUES ('" . $name . "', '" . $id . "')";
 
 		if ($conn->query($sql) === TRUE) {
 			echo "New record created successfully";
