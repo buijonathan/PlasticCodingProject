@@ -64,7 +64,7 @@ while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
 		echo ("<td>" . $key . " -> " . $value . "</td>");
 		if($key == "userId" && $value != "") {
 			//echo("<td>" . http_get("http://api.instagram.com/v1/users/" . $value . "/media/recent/?access_token=7058122227.649a75e.60391249e7674670af01d4bcd041c904") . </td>);
-			echo ("<td>" . http_get("https://api.instagram.com/v1/users/self/media/recent/?access_token=7058122227.649a75e.60391249e7674670af01d4bcd041c904") . "</td>");
+			echo ("<td>" . http_get("http://api.instagram.com/v1/users/self/media/recent/?access_token=7058122227.649a75e.60391249e7674670af01d4bcd041c904") . "</td>");
 		}
 	}
 	echo "</tr>";
