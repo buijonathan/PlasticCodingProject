@@ -44,7 +44,7 @@ $results = $conn->query($sql);
 var_dump($results);
 echo "<br>";
 echo "<table>";
-while ($row = $result->fetch_assoc()) {
+while ($row = $result->fetch_array()) {
 	
 	echo "<td>";
 	foreach($row as $key => $value) {
