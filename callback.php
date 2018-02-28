@@ -39,23 +39,19 @@ $sql = "CREATE DATABASE users";
 //long(15)
 //name(50)
 
-$sql = "CREATE TABLE posts (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-mediaId VARCHAR(50) NOT NULL,
-name VARCHAR(30),
-profileURL VARCHAR(150),
-imageURL VARCHAR(150),
-time VARCHAR(15),
-lat FLOAT,
-lon FLOAT,
-locName VARCHAR(50)
-)";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Database created successfully <br>";
-} else {
-    echo "Error creating database: " . $conn->error . "<br>";
+$sql = "SELECT * FROM posts";
+$results = $conn->query($sql);
+var_dump($results);
+echo "<br>";
+echo "<table>";
+while ($row = mysql_fetch_array($results)) {
+	echo "<td>";
+	foreach($row as $key => $value) {
+		echo ("<tr>" . $key . " -> " . $value . "</td>");
+	}
+	echo "</td>";
 }
+echo "</table>";
 
 $fileName = "data.txt";
 chmod($fileName, 0777);
