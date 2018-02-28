@@ -75,7 +75,7 @@ while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
 			);
 			$context  = stream_context_create($options);
 			$result = file_get_contents($url, false, $context);
-			echo("<td>" . $result . " " . var_export($value, true) . " " . $url ."</td>");
+			echo("<td>" . $result  ."</td>");
 		}
 		
 	}
