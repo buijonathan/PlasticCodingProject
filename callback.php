@@ -54,7 +54,7 @@ echo "Connected successfully <br>";
 
 $sql = "SELECT * FROM users";
 $results = $conn->query($sql);
-$resultCopy = $result;
+$resultCopy = $conn->query($sql);
 var_dump($results);
 echo "<br>";
 echo "<table>";
@@ -107,14 +107,6 @@ while ($row = $resultCopy->fetch_array(MYSQLI_ASSOC)) {
 		echo("name: " . $post['location']['name'] . "<br>");
 
 	}
-}
-
-foreach($row as $key => $value) {
-
-		
-
-	
-		
 }
 
 
