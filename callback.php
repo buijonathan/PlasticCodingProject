@@ -63,22 +63,6 @@ while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
 	echo "<tr>";
 	foreach($row as $key => $value) {
 		echo ("<td>" . $key . " -> " . $value . "</td>");
-		if($key == "userId" && trim($value) != "") {
-			//echo("<td>" . http_get("http://api.instagram.com/v1/users/" . $value . "/media/recent/?access_token=7058122227.649a75e.60391249e7674670af01d4bcd041c904") . </td>);
-			//echo ("<td>" . http_get("http://api.instagram.com/v1/users/self/media/recent/?access_token=7058122227.649a75e.60391249e7674670af01d4bcd041c904") . "</td>");
-			$url = 'http://api.instagram.com/v1/users/' . trim($value) . '/media/recent/?access_token=' . $row['authKey'];
-			
-			$options = array(
-				'http' => array(
-					'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-					'method'  => 'GET',
-				)
-			);
-			$context  = stream_context_create($options);
-			$result = file_get_contents($url, false, $context);
-			echo("<td>" . $result  ."</td>");
-		}
-		
 	}
 	echo "</tr>";
 }
@@ -105,6 +89,15 @@ while ($row = $resultCopy->fetch_array(MYSQLI_ASSOC)) {
 		echo("lat: " . $post['location']['latitude'] . "<br>");
 		echo("long: " . $post['location']['longitude']	. "<br>");
 		echo("name: " . $post['location']['name'] . "<br>");
+		
+		
+		$sql = "INSERT INTO users (name, userId, authKey) VALUES ('" . $name . "', '" . $id . "', '" . $token . "')";
+
+		if ($conn->query($sql) === TRUE) {
+			echo "New record created successfully";
+		} else {
+			echo ("Error: " . $sql . "<br>" . $conn->error);
+		}
 
 	}
 }
