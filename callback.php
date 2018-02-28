@@ -65,7 +65,7 @@ while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
 		if($key == "userId" && trim($value) != "") {
 			//echo("<td>" . http_get("http://api.instagram.com/v1/users/" . $value . "/media/recent/?access_token=7058122227.649a75e.60391249e7674670af01d4bcd041c904") . </td>);
 			//echo ("<td>" . http_get("http://api.instagram.com/v1/users/self/media/recent/?access_token=7058122227.649a75e.60391249e7674670af01d4bcd041c904") . "</td>");
-			$url = 'http://api.instagram.com/v1/users/' . trim($value) . '/media/recent/?access_token=7058122227.649a75e.60391249e7674670af01d4bcd041c904';
+			$url = 'http://api.instagram.com/v1/users/' . trim($value) . '/media/recent/?access_token=' . $row['authKey'];
 			
 			$options = array(
 				'http' => array(
