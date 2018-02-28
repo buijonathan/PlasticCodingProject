@@ -52,7 +52,7 @@ echo "Connected successfully <br>";
 //long(15)
 //name(50)
 
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM posts";
 $results = $conn->query($sql);
 $resultCopy = $conn->query($sql);
 var_dump($results);
@@ -91,13 +91,7 @@ while ($row = $resultCopy->fetch_array(MYSQLI_ASSOC)) {
 		echo("name: " . $post['location']['name'] . "<br>");
 		
 		
-		$sql = "INSERT INTO users (name, userId, authKey) VALUES ('" . $name . "', '" . $id . "', '" . $token . "')";
 
-		if ($conn->query($sql) === TRUE) {
-			echo "New record created successfully";
-		} else {
-			echo ("Error: " . $sql . "<br>" . $conn->error);
-		}
 
 	}
 }
