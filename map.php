@@ -30,7 +30,7 @@
         });
       }
 	  function updateMap() {
-		var jsonString = "<?php include 'getPosts.php'; ?>";
+		var jsonString = '<?php include 'getPosts.php'; ?>';
 		alert(jsonString);
 		var jsonObj = JSON.parse(jsonString);
 		var data = jsonObj.data;
