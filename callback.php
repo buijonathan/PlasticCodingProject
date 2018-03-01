@@ -52,8 +52,6 @@ echo "Connected successfully <br>";
 //long(15)
 //name(50)
 
-$sql = "DELETE FROM posts";
-$postResults = $conn->query($sql);
 
 $sql = "SELECT * FROM posts";
 $postResults = $conn->query($sql);
