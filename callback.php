@@ -53,6 +53,7 @@ echo "Connected successfully <br>";
 //name(50)
 
 $sql = "DELETE FROM posts";
+$conn->query($sql);
 
 $sql = "SELECT * FROM posts";
 $postResults = $conn->query($sql);
@@ -103,7 +104,7 @@ while ($row = $userResults->fetch_array(MYSQLI_ASSOC)) {
 		
 		$sql = "SELECT * FROM posts WHERE mediaId=" . trim($post['id']);
 		$result = $conn->query($sql);
-		echo $sql;
+		echo $sql . "<br>";
 		echo $conn->error;
 		var_dump($result);
 		if ($result->num_rows > 0) {
@@ -113,14 +114,14 @@ while ($row = $userResults->fetch_array(MYSQLI_ASSOC)) {
 
 			//$sql = "INSERT INTO posts (mediaId, name, profileURL, imageURL, time, lat, lon, locName) VALUES (${post['id']}, ${post['user']['full_name']},${post['user']['profile_picture']},${post['images']['standard_resolution']['url']},${post['created_time']},${post['location']['latitude']},${post['location']['longitude']},${post['location']['name']})";
 			$values = "";
-			$values = $values . "'" . $post['id'] . "', ";
-			$values = $values . "'" . $post['user']['full_name'] . "', ";
-			$values = $values . "'" . $post['user']['profile_picture'] . "', ";
-			$values = $values . "'" . $post['images']['standard_resolution']['url'] . "', ";
-			$values = $values . "'" . $post['created_time'] . "', ";
-			$values = $values . "'" . $post['location']['latitude'] . "', ";
-			$values = $values . "'" . $post['location']['longitude'] . "', ";
-			$values = $values . "'" . $post['location']['name'] . "'";
+			$values = $values . "'" . trim($post['id']) . "', ";
+			$values = $values . "'" . trim($post['user']['full_name']) . "', ";
+			$values = $values . "'" . trim($post['user']['profile_picture']) . "', ";
+			$values = $values . "'" . trim($post['images']['standard_resolution']['url']) . "', ";
+			$values = $values . "'" . trim($post['created_time']) . "', ";
+			$values = $values . "'" . trim($post['location']['latitude']) . "', ";
+			$values = $values . "'" . trim($post['location']['longitude']) . "', ";
+			$values = $values . "'" . trim($post['location']['name'])) . "'";
 			$sql = "INSERT INTO posts (mediaId, name, profileURL, imageURL, time, lat, lon, locName) VALUES (" . $values . ")";
 			$conn->query($sql);
 			echo $conn->error;
