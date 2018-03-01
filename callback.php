@@ -52,7 +52,7 @@ echo "Connected successfully <br>";
 //long(15)
 //name(50)
 
-$sql = "INSERT INTO posts (long) VALUES (123)";
+$sql = "INSERT INTO posts (long) VALUES ('123')";
 $conn->query($sql);
 echo $conn->error;
 $sql = "SELECT * FROM posts";
