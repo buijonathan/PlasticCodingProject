@@ -52,19 +52,15 @@ echo "Connected successfully <br>";
 //long(15)
 //name(50)
 
+$sql = "INSERT INTO posts (long) VALUES (123)";
+$conn->query($sql);
+
 $sql = "SELECT * FROM posts";
 $results = $conn->query($sql);
 $resultCopy = $conn->query($sql);
 var_dump($results);
 echo "<br>";
 echo "<table>";
-//$sql = "SELECT column_name from information_schema.columns where table_name='posts'";
-//$headerResult = conn->query($sql);
-//var_dump($headerResult);
-//$row = $headerResult->fetch_array(MYSQLI_ASSOC);
-//foreach($row as $value) {
-//	echo( "<th>" . $value . "</th>");
-//}
 while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
 	
 	echo "<tr>";
