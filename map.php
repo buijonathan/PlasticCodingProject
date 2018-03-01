@@ -22,7 +22,7 @@
     <div id="map"></div>
     <script>
       var map;
-	  var jsonString = <?php include 'getPosts.php'; ?>;
+	  var jsonString = "<?php include 'getPosts.php'; ?>";
 	  document.write(document.body + " " + jsonString);
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
