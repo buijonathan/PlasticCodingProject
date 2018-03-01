@@ -26,7 +26,7 @@ var_dump($data);
 $json = array();
 $json['size'] = sizeof($data);
 $json['data'] = $data;
-var_dump(json_decode($json, true));
+var_dump($json);
 
 
 ?>
