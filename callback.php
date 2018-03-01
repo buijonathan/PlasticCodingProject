@@ -52,13 +52,13 @@ echo "Connected successfully <br>";
 //long(15)
 //name(50)
 
-$sql = "INSERT INTO posts (long) VALUES ('123')";
+$sql = "INSERT INTO posts (name) VALUES ('123')";
 $conn->query($sql);
 echo $conn->error;
 $sql = "SELECT * FROM posts";
 $results = $conn->query($sql);
 $resultCopy = $conn->query($sql);
-var_dump($results);
+var_dump($results); 
 echo "<br>";
 echo "<table>";
 while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
