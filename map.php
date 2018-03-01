@@ -28,6 +28,7 @@
           center: {lat: 37.303189, lng: -121.804466},
           zoom: 12
         });
+		updateMap();
       }
 	  function updateMap() {
 		var jsonString = '<?php include 'getPosts.php'; ?>';
@@ -43,7 +44,6 @@
 			});
 		}
 	  }
-	  updateMap();
 
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNFq9N7BBRZxthhRQ_a9-gc3Lq7di0g68&callback=initMap"
