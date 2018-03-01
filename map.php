@@ -32,6 +32,7 @@
       }
 	  function updateMap() {
 		var jsonString = '<?php include 'getPosts.php'; ?>';
+		alert(jsonString);
 		var jsonObj = JSON.parse(jsonString);
 		var data = jsonObj.data;
 		for(var i = 0; i < data.length; i++) {
@@ -42,7 +43,7 @@
           content: contentString
         });
 			var marker = new google.maps.Marker({
-				position: {lat: post.lat, lng: post.lon},
+				position: {lat: 37.303189, lng: -121.804466},
 				map: map,
 				title: post.mediaId
 			});
