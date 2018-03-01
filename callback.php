@@ -121,7 +121,7 @@ while ($row = $userResults->fetch_array(MYSQLI_ASSOC)) {
 			$values = $values . "'" . trim($post['created_time']) . "', ";
 			$values = $values . "'" . trim($post['location']['latitude']) . "', ";
 			$values = $values . "'" . trim($post['location']['longitude']) . "', ";
-			$values = $values . "'" . trim($post['location']['name'])) . "'";
+			$values = $values . "'" . trim($post['location']['name']) . "'";
 			$sql = "INSERT INTO posts (mediaId, name, profileURL, imageURL, time, lat, lon, locName) VALUES (" . $values . ")";
 			$conn->query($sql);
 			echo $conn->error;
