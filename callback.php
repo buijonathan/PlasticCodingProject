@@ -58,6 +58,12 @@ $resultCopy = $conn->query($sql);
 var_dump($results);
 echo "<br>";
 echo "<table>";
+$sql = "SELECT column_name from information_schema.columns where table_name='posts'";
+$headerResult = conn->query($sql);
+$row = $headerResult->fetch_array(MYSQLI_ASSOC);
+foreach($row as $value) {
+	echo( "<th>" . $value . "</th>");
+}
 while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
 	
 	echo "<tr>";
@@ -66,7 +72,11 @@ while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
 	}
 	echo "</tr>";
 }
+
+
 echo "</table>";
+
+
 
 while ($row = $resultCopy->fetch_array(MYSQLI_ASSOC)) {
 	$url = 'http://api.instagram.com/v1/users/' . $row['userId'] . '/media/recent/?access_token=' . $row['authKey'];
