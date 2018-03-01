@@ -20,13 +20,13 @@ $data = array();
 while ($row = $postResults->fetch_array(MYSQLI_ASSOC)) {
 	
 	array_push($data, json_encode($row));
-	
+	var_dump($row);
 }
 
 $json = array();
 $json['size'] = sizeof($data);
 $json['data'] = $data;
-echo json_decode($json, true);
+var_dump(json_decode($json, true));
 
 
 ?>
