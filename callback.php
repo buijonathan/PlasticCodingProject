@@ -101,7 +101,7 @@ while ($row = $userResults->fetch_array(MYSQLI_ASSOC)) {
 		echo("long: " . $post['location']['longitude']	. "<br>");
 		echo("name: " . $post['location']['name'] . "<br>");
 		
-		$sql = "SELECT * FROM posts WHERE mediaId=" . trim($post['id']);
+		$sql = "SELECT * FROM posts WHERE mediaId='" . trim($post['id']) . "'";
 		$result = $conn->query($sql);
 		echo $sql . "<br>";
 		echo $conn->error;
