@@ -31,6 +31,7 @@
       }
 	  function updateMap() {
 		var jsonString = "<?php include 'getPosts.php'; ?>";
+		alert(jsonString);
 		var jsonObj = JSON.parse(jsonString);
 		var data = jsonObj.data;
 		for(var i = 0; i < data.length; i++) {
