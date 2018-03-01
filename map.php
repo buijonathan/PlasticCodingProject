@@ -32,16 +32,23 @@
       }
 	  function updateMap() {
 		var jsonString = '<?php include 'getPosts.php'; ?>';
-		alert(jsonString);
 		var jsonObj = JSON.parse(jsonString);
 		var data = jsonObj.data;
 		for(var i = 0; i < data.length; i++) {
 			var post = data[i];
+			var contentString = "<h3>" + post.name + "</p><br><img src=" + post.imageURL + ">";
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
 			var marker = new google.maps.Marker({
-				position: {lat: 37.303189, lng: -121.804466},
+				position: {lat: post.lat, lng: post.lon},
 				map: map,
 				title: post.mediaId
 			});
+			marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
 		}
 	  }
 
