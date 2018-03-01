@@ -57,7 +57,7 @@ $sql = "SELECT * FROM posts";
 $postResults = $conn->query($sql);
 $sql = "SELECT * FROM users";
 $userResults = $conns->query($sql);
-var_dump($results); 
+var_dump($postResults); 
 echo "<br>";
 echo "<table>";
 while ($row = $postResults->fetch_array(MYSQLI_ASSOC)) {
