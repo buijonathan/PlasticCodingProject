@@ -23,7 +23,6 @@
     <script>
       var map;
 	  var count = 0;
-	  document.write(document.body + " " + jsonString);
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 37.303189, lng: -121.804466},
