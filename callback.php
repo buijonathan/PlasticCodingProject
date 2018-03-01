@@ -57,7 +57,7 @@ $sql = "SELECT * FROM posts";
 $postResults = $conn->query($sql);
 echo $conn->error;
 $sql = "SELECT * FROM users";
-$userResults = $conns->query($sql);
+$userResults = $conn->query($sql);
 echo $conn->error;
 var_dump($postResults); 
 echo "<br>";
