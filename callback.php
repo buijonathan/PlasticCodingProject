@@ -52,6 +52,7 @@ echo "Connected successfully <br>";
 //long(15)
 //name(50)
 
+$sql = "DELETE FROM posts";
 
 $sql = "SELECT * FROM posts";
 $postResults = $conn->query($sql);
@@ -102,6 +103,9 @@ while ($row = $userResults->fetch_array(MYSQLI_ASSOC)) {
 		
 		$sql = "SELECT * FROM posts WHERE mediaId=" . trim($post['id']);
 		$result = $conn->query($sql);
+		echo $sql;
+		echo $conn->error;
+		var_dump($result);
 		if ($result->num_rows > 0) {
 			echo "media already exists!";
 		} else {
