@@ -104,8 +104,16 @@ while ($row = $resultCopy->fetch_array(MYSQLI_ASSOC)) {
 		//id -> 1	mediaId ->	name -> 123	profileURL ->	imageURL ->	time ->	lat ->	lon ->	locName ->
 
 			//$sql = "INSERT INTO posts (mediaId, name, profileURL, imageURL, time, lat, lon, locName) VALUES (${post['id']}, ${post['user']['full_name']},${post['user']['profile_picture']},${post['images']['standard_resolution']['url']},${post['created_time']},${post['location']['latitude']},${post['location']['longitude']},${post['location']['name']})";
-			
-			$sql = "INSERT INTO posts (name) VALUES ('" . $post['user']['full_name'] . "')";
+			$values = "";
+			$values = $values . "'" . $post['id'] . "', ";
+			$values = $values . "'" . $post['user']['full_name'] . "', ";
+			$values = $values . "'" . $post['user']['profile_picture'] . "', ";
+			$values = $values . "'" . $post['images']['standard_resolution']['url'] . "', ";
+			$values = $values . "'" . $post['created_time'] . "', ";
+			$values = $values . "'" . $post['location']['latitude'] . "', ";
+			$values = $values . "'" . $post['location']['longitude'] . "', ";
+			$values = $values . "'" . $post['location']['name'] . "'";
+			$sql = "INSERT INTO posts (mediaId, name, profileURL, imageURL, time, lat, lon, locName) VALUES (" . $values . ")";
 			$conn->query($sql);
 			echo $conn->error;
 		}
