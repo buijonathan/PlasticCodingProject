@@ -60,10 +60,11 @@ echo "<br>";
 echo "<table>";
 $sql = "SELECT column_name from information_schema.columns where table_name='posts'";
 $headerResult = conn->query($sql);
-$row = $headerResult->fetch_array(MYSQLI_ASSOC);
-foreach($row as $value) {
-	echo( "<th>" . $value . "</th>");
-}
+var_dump($headerResult);
+//$row = $headerResult->fetch_array(MYSQLI_ASSOC);
+//foreach($row as $value) {
+//	echo( "<th>" . $value . "</th>");
+//}
 while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
 	
 	echo "<tr>";
