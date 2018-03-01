@@ -12,21 +12,21 @@ $conn = new mysqli($servername, $username, $password, $dbName);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error . "<br>");
 } 
-echo "Connected successfully <br>";
+//echo "Connected successfully <br>";
 $sql = "SELECT * FROM posts";
 $postResults = $conn->query($sql);
-echo $conn->error;
+//echo $conn->error;
 $data = array();
 while ($row = $postResults->fetch_array(MYSQLI_ASSOC)) {
 	
 	array_push($data, $row);
 	//var_dump($row);
 }
-var_dump($data);
+//var_dump($data);
 $json = array();
 $json['size'] = sizeof($data);
 $json['data'] = $data;
-var_dump($json);
-
+//var_dump($json);
+echo json_encode($json);
 
 ?>
