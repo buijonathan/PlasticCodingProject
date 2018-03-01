@@ -52,6 +52,13 @@ echo "Connected successfully <br>";
 //long(15)
 //name(50)
 
+$sql "ALTER TABLE posts ALTER COLUMN imageURL VARCHAR(200)";
+$conn->query($sql);
+echo $conn->error;
+$sql "ALTER TABLE posts ALTER COLUMN profileURL VARCHAR(175)";
+$conn->query($sql);
+echo $conn->error;
+
 
 $sql = "SELECT * FROM posts";
 $postResults = $conn->query($sql);
