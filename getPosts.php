@@ -34,6 +34,6 @@ $json = array();
 $json['size'] = sizeof($data);
 $json['data'] = $data;
 //var_dump($json);
-echo json_encode($json);
+echo htmlspecialchars(json_encode($json));
 
 ?>
