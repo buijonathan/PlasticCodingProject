@@ -42,8 +42,9 @@
 				title: post.mediaId
 			});
 		}
-		updateMap();
 	  }
+	  updateMap();
+
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNFq9N7BBRZxthhRQ_a9-gc3Lq7di0g68&callback=initMap"
     async defer></script>
