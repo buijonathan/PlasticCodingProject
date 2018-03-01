@@ -54,7 +54,7 @@ echo "Connected successfully <br>";
 
 $sql = "INSERT INTO posts (long) VALUES (123)";
 $conn->query($sql);
-
+echo $conn->error;
 $sql = "SELECT * FROM posts";
 $results = $conn->query($sql);
 $resultCopy = $conn->query($sql);
