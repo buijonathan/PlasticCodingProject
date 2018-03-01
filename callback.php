@@ -105,7 +105,7 @@ while ($row = $resultCopy->fetch_array(MYSQLI_ASSOC)) {
 
 			//$sql = "INSERT INTO posts (mediaId, name, profileURL, imageURL, time, lat, lon, locName) VALUES (${post['id']}, ${post['user']['full_name']},${post['user']['profile_picture']},${post['images']['standard_resolution']['url']},${post['created_time']},${post['location']['latitude']},${post['location']['longitude']},${post['location']['name']})";
 			
-			$sql = "INSERT INTO posts (name, $post['user']['full_name'])";
+			$sql = "INSERT INTO posts (name) VALUES ('$post['user']['full_name']')";
 			$conn->query($sql);
 			echo $conn->error;
 		}
