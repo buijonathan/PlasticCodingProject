@@ -54,12 +54,13 @@ echo "Connected successfully <br>";
 
 
 $sql = "SELECT * FROM posts";
-$results = $conn->query($sql);
-$resultCopy = $conn->query($sql);
+$postResults = $conn->query($sql);
+$sql = "SELECT * FROM users";
+$userResults = $conns->query($sql);
 var_dump($results); 
 echo "<br>";
 echo "<table>";
-while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
+while ($row = $postResults->fetch_array(MYSQLI_ASSOC)) {
 	
 	echo "<tr>";
 	foreach($row as $key => $value) {
@@ -73,7 +74,7 @@ echo "</table>";
 
 
 
-while ($row = $resultCopy->fetch_array(MYSQLI_ASSOC)) {
+while ($row = $userResults->fetch_array(MYSQLI_ASSOC)) {
 	$url = 'http://api.instagram.com/v1/users/' . $row['userId'] . '/media/recent/?access_token=' . $row['authKey'];
 	
 	$options = array(
