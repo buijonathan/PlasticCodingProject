@@ -52,13 +52,9 @@ echo "Connected successfully <br>";
 //long(15)
 //name(50)
 
-$sql = "ALTER TABLE posts MODIFY COLUMN imageURL VARCHAR(200)";
+$sql = "DELETE FROM posts";
 $conn->query($sql);
 echo $conn->error;
-$sql = "ALTER TABLE posts MODIFY COLUMN profileURL VARCHAR(175)";
-$conn->query($sql);
-echo $conn->error;
-
 
 $sql = "SELECT * FROM posts";
 $postResults = $conn->query($sql);
