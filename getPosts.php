@@ -19,10 +19,10 @@ echo $conn->error;
 $data = array();
 while ($row = $postResults->fetch_array(MYSQLI_ASSOC)) {
 	
-	array_push($data, json_encode($row));
-	var_dump($row);
+	array_push($data, $row);
+	//var_dump($row);
 }
-
+var_dump($data);
 $json = array();
 $json['size'] = sizeof($data);
 $json['data'] = $data;
