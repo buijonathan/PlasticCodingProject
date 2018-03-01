@@ -52,9 +52,7 @@ echo "Connected successfully <br>";
 //long(15)
 //name(50)
 
-$sql = "INSERT INTO posts (name) VALUES ('123')";
-$conn->query($sql);
-echo $conn->error;
+
 $sql = "SELECT * FROM posts";
 $results = $conn->query($sql);
 $resultCopy = $conn->query($sql);
@@ -88,6 +86,8 @@ while ($row = $resultCopy->fetch_array(MYSQLI_ASSOC)) {
 	$result = file_get_contents($url, false, $context);
 	$mediaJson = json_decode($result, true);
 	foreach($mediaJson['data'] as $post) {
+		
+		
 		echo("ID: " . $post['id'] . "<br>");
 		echo("Full name " . $post['user']['full_name'] . "<br>");
 		echo("profile pic url: " . $post['user']['profile_picture'] . "<br>");
@@ -97,8 +97,16 @@ while ($row = $resultCopy->fetch_array(MYSQLI_ASSOC)) {
 		echo("long: " . $post['location']['longitude']	. "<br>");
 		echo("name: " . $post['location']['name'] . "<br>");
 		
-		
+		$sql = "SELECT * FROM posts WHERE mediaId=" . $post['id'];
+		if ($result->num_rows > 0) {
+			echo "media already exists!";
+		} else {
+		//id -> 1	mediaId ->	name -> 123	profileURL ->	imageURL ->	time ->	lat ->	lon ->	locName ->
 
+			$sql = "INSERT INTO posts (mediaId, name, profileURL, imageURL, time, lat, lon, locName) VALUES (${post['id']}, ${post['user']['full_name']},${post['user']['profile_picture']},${post['images']['standard_resolution']['url']},${post['created_time']},${post['location']['latitude']},${post['location']['longitude']},${post['location']['name']},)";
+			$conn->query($sql);
+			echo $conn->error;
+		}
 
 	}
 }
