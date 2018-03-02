@@ -39,17 +39,17 @@
 			var post = data[i];
 			var contentString = "<h3>" + post.name + "</p><br><img src=" + post.imageURL + ">";
 
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString
-        });
+			var infowindow = new google.maps.InfoWindow({
+			content: contentString
+			});
 			var marker = new google.maps.Marker({
 				position: {lat: 37.303189, lng: -121.804466},
 				map: map,
 				title: post.mediaId
 			});
-			marker.addListener('click', function() {
-            infowindow.open(map, marker);
-        });
+				marker.addListener('click', function() {
+				infowindow.open(map, marker);
+			});
 		}
 	  }
 
